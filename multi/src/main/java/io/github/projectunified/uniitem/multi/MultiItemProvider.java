@@ -34,6 +34,10 @@ public class MultiItemProvider implements ItemProvider {
         return this;
     }
 
+    public List<ItemProvider> getProviders() {
+        return Collections.unmodifiableList(providers);
+    }
+
     @Override
     public @NotNull String[] type() {
         return new String[]{
