@@ -1,4 +1,5 @@
 # UniItem
+![Maven Central Version](https://img.shields.io/maven-central/v/io.github.projectunified/uni-item-all)
 
 Library to hook into various item plugins
 
