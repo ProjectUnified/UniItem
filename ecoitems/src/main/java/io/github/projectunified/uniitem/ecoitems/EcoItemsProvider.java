@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class EcoItemProvider implements ItemProvider {
+public class EcoItemsProvider implements ItemProvider {
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("EcoItems") != null;
     }
@@ -17,8 +17,7 @@ public class EcoItemProvider implements ItemProvider {
     @Override
     public @NotNull String[] type() {
         return new String[]{
-                "ecoitems",
-                "ecoitem"
+                "ecoitems"
         };
     }
 

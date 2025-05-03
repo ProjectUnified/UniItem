@@ -1,7 +1,7 @@
 package io.github.projectunified.uniitem.all;
 
 import io.github.projectunified.uniitem.api.ItemProvider;
-import io.github.projectunified.uniitem.ecoitems.EcoItemProvider;
+import io.github.projectunified.uniitem.ecoitems.EcoItemsProvider;
 import io.github.projectunified.uniitem.itembridge.ItemBridgeProvider;
 import io.github.projectunified.uniitem.itemsadder.ItemsAdderProvider;
 import io.github.projectunified.uniitem.multi.MultiItemProvider;
@@ -17,7 +17,7 @@ public class AllItemProvider extends MultiItemProvider {
         register(ItemsAdderProvider::isAvailable, ItemsAdderProvider::new);
         register(OraxenProvider::isAvailable, OraxenProvider::new);
         register(NexoProvider::isAvailable, NexoProvider::new);
-        register(EcoItemProvider::isAvailable, EcoItemProvider::new);
+        register(EcoItemsProvider::isAvailable, EcoItemsProvider::new);
     }
 
     public void register(BooleanSupplier condition, Supplier<ItemProvider> provider) {
