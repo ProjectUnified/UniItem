@@ -14,6 +14,7 @@
         <module>itemsadder</module>
         <module>oraxen</module>
         <module>nexo</module>
+        <module>multi</module>
     </modules>
 
     <properties>
