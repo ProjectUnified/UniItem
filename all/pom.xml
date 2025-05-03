@@ -42,5 +42,10 @@
             <artifactId>uni-item-ecoitems</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.projectunified</groupId>
+            <artifactId>uni-item-itemedit</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

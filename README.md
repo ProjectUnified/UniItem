@@ -1,4 +1,5 @@
 # UniItem
+
 ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.projectunified/uni-item-all)
 
 Library to hook into various item plugins
@@ -12,4 +13,5 @@ Library to hook into various item plugins
 | [Oraxen](https://www.spigotmc.org/resources/72448/)     | `oraxen`           |
 | [Nexo](https://polymart.org/product/6901)               | `nexo`             |
 | [EcoItems](https://www.spigotmc.org/resources/94601/)   | `ecoitems`         |
+| [ItemEdit](https://www.spigotmc.org/resources/40993/)   | `itemedit`         |
 

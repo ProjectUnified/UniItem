@@ -17,6 +17,7 @@
         <module>multi</module>
         <module>all</module>
         <module>ecoitems</module>
+        <module>itemedit</module>
     </modules>
 
     <name>UniItem</name>
