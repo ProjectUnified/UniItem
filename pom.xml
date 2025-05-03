@@ -10,12 +10,13 @@
     <packaging>pom</packaging>
     <modules>
         <module>api</module>
+        <module>multi</module>
+        <module>all</module>
+
         <module>itembridge</module>
         <module>itemsadder</module>
         <module>oraxen</module>
         <module>nexo</module>
-        <module>multi</module>
-        <module>all</module>
         <module>ecoitems</module>
         <module>itemedit</module>
     </modules>

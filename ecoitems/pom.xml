@@ -31,5 +31,24 @@
             <version>5.62.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.willfp</groupId>
+            <artifactId>libreforge</artifactId>
+            <version>4.75.1</version>
+            <classifier>all</classifier>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.willfp</groupId>
+            <artifactId>eco</artifactId>
+            <version>6.75.2</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>
