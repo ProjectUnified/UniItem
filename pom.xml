@@ -13,6 +13,7 @@
         <module>jojodmo</module>
         <module>itemsadder</module>
         <module>oraxen</module>
+        <module>nexo</module>
     </modules>
 
     <properties>
