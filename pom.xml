@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>api</module>
-        <module>jojodmo</module>
+        <module>itembridge</module>
         <module>itemsadder</module>
         <module>oraxen</module>
         <module>nexo</module>

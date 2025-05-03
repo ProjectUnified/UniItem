@@ -9,7 +9,7 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>uni-item-jojodmo</artifactId>
+    <artifactId>uni-item-itembridge</artifactId>
 
     <repositories>
         <repository>

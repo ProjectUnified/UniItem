@@ -1,4 +1,4 @@
-package io.github.projectunified.uniitem.jojodmo;
+package io.github.projectunified.uniitem.itembridge;
 
 import com.jojodmo.itembridge.ItemBridge;
 import com.jojodmo.itembridge.ItemBridgeKey;
@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class JojodmoItemBridgeProvider implements ItemProvider {
+public class ItemBridgeProvider implements ItemProvider {
     public static boolean isAvailable() {
         if (Bukkit.getPluginManager().getPlugin("ItemBridge") == null) {
             return false;
@@ -25,8 +25,7 @@ public class JojodmoItemBridgeProvider implements ItemProvider {
     @Override
     public @NotNull String[] type() {
         return new String[]{
-                "itembridge",
-                "jojodmo"
+                "itembridge"
         };
     }
 

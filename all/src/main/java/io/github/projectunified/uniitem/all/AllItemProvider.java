@@ -1,8 +1,8 @@
 package io.github.projectunified.uniitem.all;
 
 import io.github.projectunified.uniitem.api.ItemProvider;
+import io.github.projectunified.uniitem.itembridge.ItemBridgeProvider;
 import io.github.projectunified.uniitem.itemsadder.ItemsAdderProvider;
-import io.github.projectunified.uniitem.jojodmo.JojodmoItemBridgeProvider;
 import io.github.projectunified.uniitem.multi.MultiItemProvider;
 import io.github.projectunified.uniitem.nexo.NexoProvider;
 import io.github.projectunified.uniitem.oraxen.OraxenProvider;
@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 
 public class AllItemProvider extends MultiItemProvider {
     public AllItemProvider() {
-        register(JojodmoItemBridgeProvider::isAvailable, JojodmoItemBridgeProvider::new);
+        register(ItemBridgeProvider::isAvailable, ItemBridgeProvider::new);
         register(ItemsAdderProvider::isAvailable, ItemsAdderProvider::new);
         register(OraxenProvider::isAvailable, OraxenProvider::new);
         register(NexoProvider::isAvailable, NexoProvider::new);

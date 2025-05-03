@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.projectunified</groupId>
-            <artifactId>uni-item-jojodmo</artifactId>
+            <artifactId>uni-item-itembridge</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
