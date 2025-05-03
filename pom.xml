@@ -15,6 +15,7 @@
         <module>oraxen</module>
         <module>nexo</module>
         <module>multi</module>
+        <module>all</module>
     </modules>
 
     <properties>
