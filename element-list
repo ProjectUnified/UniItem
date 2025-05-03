@@ -1,6 +1,9 @@
 io.github.projectunified.uniitem.all
 io.github.projectunified.uniitem.api
+io.github.projectunified.uniitem.ecoitems
+io.github.projectunified.uniitem.headdatabase
 io.github.projectunified.uniitem.itembridge
+io.github.projectunified.uniitem.itemedit
 io.github.projectunified.uniitem.itemsadder
 io.github.projectunified.uniitem.multi
 io.github.projectunified.uniitem.nexo
