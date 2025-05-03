@@ -37,5 +37,10 @@
             <artifactId>uni-item-nexo</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.projectunified</groupId>
+            <artifactId>uni-item-ecoitems</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

@@ -16,6 +16,7 @@
         <module>nexo</module>
         <module>multi</module>
         <module>all</module>
+        <module>ecoitems</module>
     </modules>
 
     <name>UniItem</name>
