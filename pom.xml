@@ -12,6 +12,7 @@
         <module>api</module>
         <module>jojodmo</module>
         <module>itemsadder</module>
+        <module>oraxen</module>
     </modules>
 
     <properties>
