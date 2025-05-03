@@ -1,7 +1,7 @@
-package io.github.projectunified.itembridge.itemsadder;
+package io.github.projectunified.uniitem.itemsadder;
 
 import dev.lone.itemsadder.api.CustomStack;
-import io.github.projectunified.itembridge.api.ItemProvider;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;

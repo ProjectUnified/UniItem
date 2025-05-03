@@ -1,6 +1,6 @@
-package io.github.projectunified.itembridge.oraxen;
+package io.github.projectunified.uniitem.oraxen;
 
-import io.github.projectunified.itembridge.api.ItemProvider;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import io.th0rgal.oraxen.api.OraxenItems;
 import io.th0rgal.oraxen.items.ItemBuilder;
 import org.bukkit.Bukkit;

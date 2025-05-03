@@ -1,11 +1,11 @@
-package io.github.projectunified.itembridge.all;
+package io.github.projectunified.uniitem.all;
 
-import io.github.projectunified.itembridge.api.ItemProvider;
-import io.github.projectunified.itembridge.itemsadder.ItemsAdderProvider;
-import io.github.projectunified.itembridge.jojodmo.JojodmoItemBridgeProvider;
-import io.github.projectunified.itembridge.multi.MultiItemProvider;
-import io.github.projectunified.itembridge.nexo.NexoProvider;
-import io.github.projectunified.itembridge.oraxen.OraxenProvider;
+import io.github.projectunified.uniitem.api.ItemProvider;
+import io.github.projectunified.uniitem.itemsadder.ItemsAdderProvider;
+import io.github.projectunified.uniitem.jojodmo.JojodmoItemBridgeProvider;
+import io.github.projectunified.uniitem.multi.MultiItemProvider;
+import io.github.projectunified.uniitem.nexo.NexoProvider;
+import io.github.projectunified.uniitem.oraxen.OraxenProvider;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;

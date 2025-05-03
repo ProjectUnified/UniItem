@@ -1,6 +1,6 @@
-package io.github.projectunified.itembridge.multi;
+package io.github.projectunified.uniitem.multi;
 
-import io.github.projectunified.itembridge.api.ItemProvider;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

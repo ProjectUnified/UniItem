@@ -1,4 +1,4 @@
-package io.github.projectunified.itembridge.api;
+package io.github.projectunified.uniitem.api;
 
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;

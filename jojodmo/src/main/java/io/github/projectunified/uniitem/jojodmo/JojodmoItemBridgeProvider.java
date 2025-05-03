@@ -1,8 +1,8 @@
-package io.github.projectunified.itembridge.jojodmo;
+package io.github.projectunified.uniitem.jojodmo;
 
 import com.jojodmo.itembridge.ItemBridge;
 import com.jojodmo.itembridge.ItemBridgeKey;
-import io.github.projectunified.itembridge.api.ItemProvider;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;

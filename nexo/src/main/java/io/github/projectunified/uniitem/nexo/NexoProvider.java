@@ -1,8 +1,8 @@
-package io.github.projectunified.itembridge.nexo;
+package io.github.projectunified.uniitem.nexo;
 
 import com.nexomc.nexo.api.NexoItems;
 import com.nexomc.nexo.items.ItemBuilder;
-import io.github.projectunified.itembridge.api.ItemProvider;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;

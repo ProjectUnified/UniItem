@@ -5,36 +5,36 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.github.projectunified</groupId>
-        <artifactId>item-bridge</artifactId>
+        <artifactId>uni-item</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>item-bridge-all</artifactId>
+    <artifactId>uni-item-all</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>io.github.projectunified</groupId>
-            <artifactId>item-bridge-multi</artifactId>
+            <artifactId>uni-item-multi</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.projectunified</groupId>
-            <artifactId>item-bridge-jojodmo</artifactId>
+            <artifactId>uni-item-jojodmo</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.projectunified</groupId>
-            <artifactId>item-bridge-itemsadder</artifactId>
+            <artifactId>uni-item-itemsadder</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.projectunified</groupId>
-            <artifactId>item-bridge-oraxen</artifactId>
+            <artifactId>uni-item-oraxen</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.projectunified</groupId>
-            <artifactId>item-bridge-nexo</artifactId>
+            <artifactId>uni-item-nexo</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
