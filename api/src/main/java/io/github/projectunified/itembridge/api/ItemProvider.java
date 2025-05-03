@@ -11,7 +11,7 @@ public interface ItemProvider {
 
     @Nullable String id(@NotNull ItemStack item);
 
-    @NotNull ItemStack item(@NotNull String id);
+    @Nullable ItemStack item(@NotNull String id);
 
     default boolean isSimilar(@NotNull ItemStack item, @NotNull String id) {
         return Objects.equals(id, id(item));

@@ -37,7 +37,7 @@ public class JojodmoItemBridgeProvider implements ItemProvider {
     }
 
     @Override
-    public @NotNull ItemStack item(@NotNull String id) {
+    public @Nullable ItemStack item(@NotNull String id) {
         return ItemBridge.getItemStack(id);
     }
 }
