@@ -19,6 +19,7 @@
         <module>nexo</module>
         <module>ecoitems</module>
         <module>itemedit</module>
+        <module>headdatabase</module>
     </modules>
 
     <name>UniItem</name>

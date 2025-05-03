@@ -14,6 +14,11 @@
     <dependencies>
         <dependency>
             <groupId>io.github.projectunified</groupId>
+            <artifactId>uni-item-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.projectunified</groupId>
             <artifactId>uni-item-multi</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -45,6 +50,11 @@
         <dependency>
             <groupId>io.github.projectunified</groupId>
             <artifactId>uni-item-itemedit</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.projectunified</groupId>
+            <artifactId>uni-item-headdatabase</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
