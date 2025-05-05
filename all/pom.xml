@@ -57,5 +57,10 @@
             <artifactId>uni-item-headdatabase</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.projectunified</groupId>
+            <artifactId>uni-item-executableitems</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

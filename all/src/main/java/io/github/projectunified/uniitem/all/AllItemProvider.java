@@ -2,6 +2,7 @@ package io.github.projectunified.uniitem.all;
 
 import io.github.projectunified.uniitem.api.ItemProvider;
 import io.github.projectunified.uniitem.ecoitems.EcoItemsProvider;
+import io.github.projectunified.uniitem.executableitems.ExecutableItemsProvider;
 import io.github.projectunified.uniitem.headdatabase.HeadDatabaseProvider;
 import io.github.projectunified.uniitem.itembridge.ItemBridgeProvider;
 import io.github.projectunified.uniitem.itemedit.ItemEditProvider;
@@ -22,6 +23,7 @@ public class AllItemProvider extends MultiItemProvider {
         register(EcoItemsProvider::isAvailable, EcoItemsProvider::new);
         register(ItemEditProvider::isAvailable, ItemEditProvider::new);
         register(HeadDatabaseProvider::isAvailable, HeadDatabaseProvider::new);
+        register(ExecutableItemsProvider::isAvailable, ExecutableItemsProvider::new);
     }
 
     public void register(BooleanSupplier condition, Supplier<ItemProvider> provider) {

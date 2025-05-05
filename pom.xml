@@ -20,6 +20,7 @@
         <module>ecoitems</module>
         <module>itemedit</module>
         <module>headdatabase</module>
+        <module>executableitems</module>
     </modules>
 
     <name>UniItem</name>
