@@ -8,6 +8,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class HeadDatabaseProvider implements ItemProvider {
+    private final HeadDatabaseAPI api = new HeadDatabaseAPI();
+
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("HeadDatabase") != null;
     }
@@ -20,8 +22,6 @@ public class HeadDatabaseProvider implements ItemProvider {
                 "hdb"
         };
     }
-
-    private final HeadDatabaseAPI api = new HeadDatabaseAPI();
 
     @Override
     public @Nullable String id(@NotNull ItemStack item) {
