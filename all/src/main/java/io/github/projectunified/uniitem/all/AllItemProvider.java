@@ -9,6 +9,7 @@ import io.github.projectunified.uniitem.itemedit.ItemEditProvider;
 import io.github.projectunified.uniitem.itemsadder.ItemsAdderProvider;
 import io.github.projectunified.uniitem.multi.MultiItemProvider;
 import io.github.projectunified.uniitem.nexo.NexoProvider;
+import io.github.projectunified.uniitem.nova.NovaItemProvider;
 import io.github.projectunified.uniitem.oraxen.OraxenProvider;
 
 import java.util.function.BooleanSupplier;
@@ -24,6 +25,7 @@ public class AllItemProvider extends MultiItemProvider {
         register(ItemEditProvider::isAvailable, ItemEditProvider::new);
         register(HeadDatabaseProvider::isAvailable, HeadDatabaseProvider::new);
         register(ExecutableItemsProvider::isAvailable, ExecutableItemsProvider::new);
+        register(NovaItemProvider::isAvailable, NovaItemProvider::new);
     }
 
     public void register(BooleanSupplier condition, Supplier<ItemProvider> provider) {

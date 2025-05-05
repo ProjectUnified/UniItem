@@ -16,3 +16,4 @@ Library to hook into various item plugins
 | [ItemEdit](https://www.spigotmc.org/resources/40993/)        | `itemedit`                      |
 | [HeadDatabase](https://www.spigotmc.org/resources/14280/)    | `headdatabase`, `headdb`, `hdb` |
 | [ExecutableItems](https://www.spigotmc.org/resources/77578/) | `executableitems`               |
+| [Nova](https://modrinth.com/plugin/nova-framework)           | `nova`                          |

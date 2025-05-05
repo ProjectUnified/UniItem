@@ -21,6 +21,7 @@
         <module>itemedit</module>
         <module>headdatabase</module>
         <module>executableitems</module>
+        <module>nova</module>
     </modules>
 
     <name>UniItem</name>
