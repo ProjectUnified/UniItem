@@ -13,8 +13,8 @@
 
     <repositories>
         <repository>
-            <id>matteodev</id>
-            <url>https://maven.devs.beer/</url>
+            <id>ProjectUnified-MavenRepo</id>
+            <url>https://projectunified.github.io/MavenRepo/</url>
         </repository>
     </repositories>
 
