@@ -56,6 +56,7 @@ public class MultiItemProvider implements ItemProvider {
         for (ItemProvider provider : providers) {
             ItemKey key = provider.key(item);
             if (key != null) {
+                providerPerType.computeIfAbsent(key.type(), t -> Optional.of(provider));
                 return key;
             }
         }
