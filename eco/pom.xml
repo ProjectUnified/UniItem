@@ -9,7 +9,7 @@
         <version>2.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>uni-item-ecoitems</artifactId>
+    <artifactId>uni-item-eco</artifactId>
 
     <repositories>
         <repository>
@@ -25,12 +25,6 @@
             <version>${project.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.willfp</groupId>
-            <artifactId>EcoItems</artifactId>
-            <version>5.62.0</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>com.willfp</groupId>
             <artifactId>libreforge</artifactId>
