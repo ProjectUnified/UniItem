@@ -13,15 +13,17 @@ public interface ItemProvider {
 
     @Nullable ItemStack item(@NotNull ItemKey key);
 
-    default boolean isValidType(@NotNull String type) {
-        for (String t : type()) {
-            if (t.equalsIgnoreCase(type)) return true;
+    default boolean isValidKey(@NotNull ItemKey key) {
+        for (String type : type()) {
+            if (key.type().equalsIgnoreCase(type)) {
+                return true;
+            }
         }
         return false;
     }
 
     default boolean isSimilar(@NotNull ItemStack item, @NotNull ItemKey key) {
-        if (!isValidType(key.type())) return false;
+        if (!isValidKey(key)) return false;
 
         ItemKey itemKey = key(item);
         if (itemKey == null) return false;

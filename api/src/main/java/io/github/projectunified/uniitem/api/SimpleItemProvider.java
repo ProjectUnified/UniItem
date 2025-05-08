@@ -19,7 +19,7 @@ public interface SimpleItemProvider extends ItemProvider {
 
     @Override
     default @Nullable ItemStack item(@NotNull ItemKey key) {
-        if (!isValidType(key.type())) return null;
+        if (!isValidKey(key)) return null;
         String id = key.id();
         return item(id);
     }
