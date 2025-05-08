@@ -41,9 +41,10 @@ public class MultiItemProvider implements ItemProvider {
 
     @Override
     public @NotNull String[] type() {
-        return new String[]{
-                "multi"
-        };
+        return providers.stream()
+                .flatMap(provider -> Arrays.stream(provider.type()))
+                .distinct()
+                .toArray(String[]::new);
     }
 
     @Override
