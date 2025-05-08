@@ -2,22 +2,24 @@ package io.github.projectunified.uniitem.nexo;
 
 import com.nexomc.nexo.api.NexoItems;
 import com.nexomc.nexo.items.ItemBuilder;
-import io.github.projectunified.uniitem.api.ItemProvider;
+import io.github.projectunified.uniitem.api.SimpleItemProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class NexoProvider implements ItemProvider {
+public class NexoProvider implements SimpleItemProvider {
+    private static final String[] TYPES = {
+            "nexo"
+    };
+
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("Nexo") != null;
     }
 
     @Override
     public @NotNull String[] type() {
-        return new String[]{
-                "nexo"
-        };
+        return TYPES;
     }
 
     @Override

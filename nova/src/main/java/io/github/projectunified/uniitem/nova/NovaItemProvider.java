@@ -1,6 +1,6 @@
 package io.github.projectunified.uniitem.nova;
 
-import io.github.projectunified.uniitem.api.ItemProvider;
+import io.github.projectunified.uniitem.api.SimpleItemProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -8,16 +8,18 @@ import org.jetbrains.annotations.Nullable;
 import xyz.xenondevs.nova.api.Nova;
 import xyz.xenondevs.nova.api.item.NovaItem;
 
-public class NovaItemProvider implements ItemProvider {
+public class NovaItemProvider implements SimpleItemProvider {
+    private static final String[] TYPES = {
+            "nova"
+    };
+
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("Nova") != null;
     }
 
     @Override
     public @NotNull String[] type() {
-        return new String[]{
-                "nova"
-        };
+        return TYPES;
     }
 
     @Override

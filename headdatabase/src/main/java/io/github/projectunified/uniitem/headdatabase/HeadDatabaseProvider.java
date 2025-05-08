@@ -1,13 +1,19 @@
 package io.github.projectunified.uniitem.headdatabase;
 
-import io.github.projectunified.uniitem.api.ItemProvider;
+import io.github.projectunified.uniitem.api.SimpleItemProvider;
 import me.arcaniax.hdb.api.HeadDatabaseAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class HeadDatabaseProvider implements ItemProvider {
+public class HeadDatabaseProvider implements SimpleItemProvider {
+    private static final String[] TYPES = new String[]{
+            "headdatabase",
+            "headdb",
+            "hdb"
+    };
+
     private final HeadDatabaseAPI api = new HeadDatabaseAPI();
 
     public static boolean isAvailable() {
@@ -16,11 +22,7 @@ public class HeadDatabaseProvider implements ItemProvider {
 
     @Override
     public @NotNull String[] type() {
-        return new String[]{
-                "headdatabase",
-                "headdb",
-                "hdb"
-        };
+        return TYPES;
     }
 
     @Override

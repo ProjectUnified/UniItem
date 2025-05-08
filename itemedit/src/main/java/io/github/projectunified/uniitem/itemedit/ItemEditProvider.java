@@ -2,22 +2,24 @@ package io.github.projectunified.uniitem.itemedit;
 
 import emanondev.itemedit.ItemEdit;
 import emanondev.itemedit.storage.ServerStorage;
-import io.github.projectunified.uniitem.api.ItemProvider;
+import io.github.projectunified.uniitem.api.SimpleItemProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class ItemEditProvider implements ItemProvider {
+public class ItemEditProvider implements SimpleItemProvider {
+    private static final String[] TYPES = {
+            "itemedit"
+    };
+
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("ItemEdit") != null;
     }
 
     @Override
     public @NotNull String[] type() {
-        return new String[]{
-                "itemedit"
-        };
+        return TYPES;
     }
 
     @Override

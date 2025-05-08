@@ -1,6 +1,6 @@
 package io.github.projectunified.uniitem.oraxen;
 
-import io.github.projectunified.uniitem.api.ItemProvider;
+import io.github.projectunified.uniitem.api.SimpleItemProvider;
 import io.th0rgal.oraxen.api.OraxenItems;
 import io.th0rgal.oraxen.items.ItemBuilder;
 import org.bukkit.Bukkit;
@@ -8,16 +8,18 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class OraxenProvider implements ItemProvider {
+public class OraxenProvider implements SimpleItemProvider {
+    private static final String[] TYPES = {
+            "oraxen"
+    };
+
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("Oraxen") != null;
     }
 
     @Override
     public @NotNull String[] type() {
-        return new String[]{
-                "oraxen"
-        };
+        return TYPES;
     }
 
     @Override

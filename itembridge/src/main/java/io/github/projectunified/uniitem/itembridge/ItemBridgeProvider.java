@@ -2,13 +2,17 @@ package io.github.projectunified.uniitem.itembridge;
 
 import com.jojodmo.itembridge.ItemBridge;
 import com.jojodmo.itembridge.ItemBridgeKey;
-import io.github.projectunified.uniitem.api.ItemProvider;
+import io.github.projectunified.uniitem.api.SimpleItemProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class ItemBridgeProvider implements ItemProvider {
+public class ItemBridgeProvider implements SimpleItemProvider {
+    private static final String[] TYPES = {
+            "itembridge"
+    };
+
     public static boolean isAvailable() {
         if (Bukkit.getPluginManager().getPlugin("ItemBridge") == null) {
             return false;
@@ -24,9 +28,7 @@ public class ItemBridgeProvider implements ItemProvider {
 
     @Override
     public @NotNull String[] type() {
-        return new String[]{
-                "itembridge"
-        };
+        return TYPES;
     }
 
     @Override
