@@ -26,3 +26,4 @@ Library to hook into various item plugins
 | [StatTrackers](https://www.spigotmc.org/resources/88247/)    | `stattrackers`                  |
 | [Talismans](https://www.spigotmc.org/resources/87377/)       | `talismans`                     |
 | [Slimefun](https://github.com/Slimefun/Slimefun4)            | `slimefun`, `sf`                |
+| [MythicMobs](https://www.spigotmc.org/resources/5702/)       | `mythicmobs`, `mm`              |

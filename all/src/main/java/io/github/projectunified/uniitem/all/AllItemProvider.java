@@ -8,6 +8,7 @@ import io.github.projectunified.uniitem.itembridge.ItemBridgeProvider;
 import io.github.projectunified.uniitem.itemedit.ItemEditProvider;
 import io.github.projectunified.uniitem.itemsadder.ItemsAdderProvider;
 import io.github.projectunified.uniitem.multi.MultiItemProvider;
+import io.github.projectunified.uniitem.mythicmobs.MythicItemProvider;
 import io.github.projectunified.uniitem.nexo.NexoProvider;
 import io.github.projectunified.uniitem.nova.NovaItemProvider;
 import io.github.projectunified.uniitem.oraxen.OraxenProvider;
@@ -28,6 +29,7 @@ public class AllItemProvider extends MultiItemProvider {
         register(ExecutableItemsProvider::isAvailable, ExecutableItemsProvider::new);
         register(NovaItemProvider::isAvailable, NovaItemProvider::new);
         register(SlimefunProvider::isAvailable, SlimefunProvider::new);
+        register(MythicItemProvider::isAvailable, MythicItemProvider::new);
     }
 
     public void register(BooleanSupplier condition, Supplier<ItemProvider> provider) {
