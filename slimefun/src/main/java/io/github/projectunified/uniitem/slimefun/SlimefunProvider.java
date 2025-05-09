@@ -8,6 +8,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class SlimefunProvider implements SimpleItemProvider {
+    private static final String[] TYPES = {
+            "slimefun",
+            "sf"
+    };
+
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("Slimefun") != null;
     }
@@ -24,9 +29,6 @@ public class SlimefunProvider implements SimpleItemProvider {
 
     @Override
     public @NotNull String[] type() {
-        return new String[]{
-                "slimefun",
-                "sf"
-        };
+        return TYPES;
     }
 }
