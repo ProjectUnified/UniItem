@@ -67,5 +67,10 @@
             <artifactId>uni-item-nova</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.projectunified</groupId>
+            <artifactId>uni-item-slimefun</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

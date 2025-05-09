@@ -25,3 +25,4 @@ Library to hook into various item plugins
 | [Reforges](https://www.spigotmc.org/resources/95273/)        | `reforges`                      | 
 | [StatTrackers](https://www.spigotmc.org/resources/88247/)    | `stattrackers`                  |
 | [Talismans](https://www.spigotmc.org/resources/87377/)       | `talismans`                     |
+| [Slimefun](https://github.com/Slimefun/Slimefun4)            | `slimefun`, `sf`                |
