@@ -11,6 +11,7 @@ import io.github.projectunified.uniitem.multi.MultiItemProvider;
 import io.github.projectunified.uniitem.nexo.NexoProvider;
 import io.github.projectunified.uniitem.nova.NovaItemProvider;
 import io.github.projectunified.uniitem.oraxen.OraxenProvider;
+import io.github.projectunified.uniitem.slimefun.SlimefunProvider;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
@@ -26,6 +27,7 @@ public class AllItemProvider extends MultiItemProvider {
         register(HeadDatabaseProvider::isAvailable, HeadDatabaseProvider::new);
         register(ExecutableItemsProvider::isAvailable, ExecutableItemsProvider::new);
         register(NovaItemProvider::isAvailable, NovaItemProvider::new);
+        register(SlimefunProvider::isAvailable, SlimefunProvider::new);
     }
 
     public void register(BooleanSupplier condition, Supplier<ItemProvider> provider) {
