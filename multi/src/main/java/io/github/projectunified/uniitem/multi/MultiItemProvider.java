@@ -33,21 +33,30 @@ public class MultiItemProvider implements ItemProvider {
         }
     }
 
-    private ItemKey normalizeKey(@NotNull ItemKey key) {
-        String type = key.type();
-        type = aliases.getOrDefault(normalize(type), type);
-        return new ItemKey(normalize(type), key.id());
+    public Collection<String> getTypes() {
+        return Collections.unmodifiableCollection(providerMap.keySet());
     }
 
-    public Collection<String> getPossibleTypes() {
-        Set<String> types = new HashSet<>();
-        types.addAll(providerMap.keySet());
-        types.addAll(aliases.keySet());
-        return types;
+    public Collection<String> getAliases() {
+        return Collections.unmodifiableCollection(aliases.keySet());
     }
 
     public Collection<ItemProvider> getProviders() {
         return Collections.unmodifiableCollection(providers);
+    }
+
+    public @Nullable String getType(String alias) {
+        return aliases.get(normalize(alias));
+    }
+
+    public @Nullable ItemProvider getProvider(String type) {
+        return providerMap.get(normalize(type));
+    }
+
+    private ItemKey normalizeKey(@NotNull ItemKey key) {
+        String type = key.type();
+        type = aliases.getOrDefault(normalize(type), type);
+        return new ItemKey(normalize(type), key.id());
     }
 
     @Override
