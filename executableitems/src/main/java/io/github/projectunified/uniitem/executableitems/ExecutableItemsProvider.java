@@ -4,6 +4,7 @@ import com.ssomar.score.api.executableitems.ExecutableItemsAPI;
 import com.ssomar.score.sobject.SObjectInterface;
 import io.github.projectunified.uniitem.api.SimpleItemProvider;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -37,6 +38,14 @@ public class ExecutableItemsProvider implements SimpleItemProvider {
         return ExecutableItemsAPI.getExecutableItemsManager()
                 .getExecutableItem(id)
                 .map(i -> i.buildItem(1, Optional.empty()))
+                .orElse(null);
+    }
+
+    @Override
+    public @Nullable ItemStack item(@NotNull String id, @NotNull Player player) {
+        return ExecutableItemsAPI.getExecutableItemsManager()
+                .getExecutableItem(id)
+                .map(i -> i.buildItem(1, Optional.of(player)))
                 .orElse(null);
     }
 }

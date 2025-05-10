@@ -1,5 +1,6 @@
 package io.github.projectunified.uniitem.api;
 
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -12,6 +13,14 @@ public interface ItemProvider {
     @Nullable ItemKey key(@NotNull ItemStack item);
 
     @Nullable ItemStack item(@NotNull ItemKey key);
+
+    default @Nullable ItemStack item(@NotNull ItemKey key, @NotNull Player player) {
+        return item(key);
+    }
+
+    default @Nullable ItemStack tryItem(@NotNull ItemKey key, @Nullable Player player) {
+        return player == null ? item(key) : item(key, player);
+    }
 
     default boolean isValidKey(@NotNull ItemKey key) {
         for (String type : type()) {
