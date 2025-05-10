@@ -9,17 +9,13 @@ import xyz.xenondevs.nova.api.Nova;
 import xyz.xenondevs.nova.api.item.NovaItem;
 
 public class NovaItemProvider implements SimpleItemProvider {
-    private static final String[] TYPES = {
-            "nova"
-    };
-
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("Nova") != null;
     }
 
     @Override
-    public @NotNull String[] type() {
-        return TYPES;
+    public @NotNull String type() {
+        return "nova";
     }
 
     @Override

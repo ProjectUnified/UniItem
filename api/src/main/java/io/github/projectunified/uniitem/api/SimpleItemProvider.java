@@ -6,6 +6,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public interface SimpleItemProvider extends ItemProvider {
+    @NotNull String type();
+
     @Nullable String id(@NotNull ItemStack item);
 
     @Nullable ItemStack item(@NotNull String id);
@@ -14,11 +16,15 @@ public interface SimpleItemProvider extends ItemProvider {
         return item(id);
     }
 
+    default boolean isValidKey(@NotNull ItemKey key) {
+        return key.type().equalsIgnoreCase(type());
+    }
+
     @Override
     default @Nullable ItemKey key(@NotNull ItemStack item) {
         String id = id(item);
         if (id == null) return null;
-        String type = type()[0];
+        String type = type();
         return new ItemKey(type, id);
     }
 

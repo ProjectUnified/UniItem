@@ -1,6 +1,5 @@
 package io.github.projectunified.uniitem.all;
 
-import io.github.projectunified.uniitem.api.ItemProvider;
 import io.github.projectunified.uniitem.eco.EcoItemProvider;
 import io.github.projectunified.uniitem.executableitems.ExecutableItemsProvider;
 import io.github.projectunified.uniitem.headdatabase.HeadDatabaseProvider;
@@ -14,27 +13,46 @@ import io.github.projectunified.uniitem.nova.NovaItemProvider;
 import io.github.projectunified.uniitem.oraxen.OraxenProvider;
 import io.github.projectunified.uniitem.slimefun.SlimefunProvider;
 
-import java.util.function.BooleanSupplier;
-import java.util.function.Supplier;
-
 public class AllItemProvider extends MultiItemProvider {
     public AllItemProvider() {
-        register(ItemBridgeProvider::isAvailable, ItemBridgeProvider::new);
-        register(ItemsAdderProvider::isAvailable, ItemsAdderProvider::new);
-        register(OraxenProvider::isAvailable, OraxenProvider::new);
-        register(NexoProvider::isAvailable, NexoProvider::new);
-        register(EcoItemProvider::isAvailable, EcoItemProvider::new);
-        register(ItemEditProvider::isAvailable, ItemEditProvider::new);
-        register(HeadDatabaseProvider::isAvailable, HeadDatabaseProvider::new);
-        register(ExecutableItemsProvider::isAvailable, ExecutableItemsProvider::new);
-        register(NovaItemProvider::isAvailable, NovaItemProvider::new);
-        register(SlimefunProvider::isAvailable, SlimefunProvider::new);
-        register(MythicItemProvider::isAvailable, MythicItemProvider::new);
-    }
+        // Dependent
+        if (EcoItemProvider.isAvailable()) {
+            EcoItemProvider provider = new EcoItemProvider();
+            addProvider(provider, provider.type());
+        }
+        if (ItemEditProvider.isAvailable()) {
+            addProvider(new ItemEditProvider());
+        }
+        if (ExecutableItemsProvider.isAvailable()) {
+            addProvider(new ExecutableItemsProvider());
+        }
+        if (MythicItemProvider.isAvailable()) {
+            addProvider(new MythicItemProvider(), "mm");
+        }
 
-    public void register(BooleanSupplier condition, Supplier<ItemProvider> provider) {
-        if (condition.getAsBoolean()) {
-            addProvider(provider.get());
+        // Base
+        if (ItemsAdderProvider.isAvailable()) {
+            addProvider(new ItemsAdderProvider(), "ia");
+        }
+        if (OraxenProvider.isAvailable()) {
+            addProvider(new OraxenProvider(), "orx");
+        }
+        if (NexoProvider.isAvailable()) {
+            addProvider(new NexoProvider());
+        }
+        if (HeadDatabaseProvider.isAvailable()) {
+            addProvider(new HeadDatabaseProvider(), "hdb", "headdb");
+        }
+        if (NovaItemProvider.isAvailable()) {
+            addProvider(new NovaItemProvider());
+        }
+        if (SlimefunProvider.isAvailable()) {
+            addProvider(new SlimefunProvider(), "sf");
+        }
+
+        // Bridge
+        if (ItemBridgeProvider.isAvailable()) {
+            addProvider(new ItemBridgeProvider(), "item-bridge");
         }
     }
 }

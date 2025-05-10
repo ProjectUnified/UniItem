@@ -9,17 +9,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class OraxenProvider implements SimpleItemProvider {
-    private static final String[] TYPES = {
-            "oraxen"
-    };
-
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("Oraxen") != null;
     }
 
     @Override
-    public @NotNull String[] type() {
-        return TYPES;
+    public @NotNull String type() {
+        return "oraxen";
     }
 
     @Override

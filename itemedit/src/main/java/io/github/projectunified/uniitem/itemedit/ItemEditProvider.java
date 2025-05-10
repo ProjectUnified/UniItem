@@ -9,17 +9,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class ItemEditProvider implements SimpleItemProvider {
-    private static final String[] TYPES = {
-            "itemedit"
-    };
-
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("ItemEdit") != null;
     }
 
     @Override
-    public @NotNull String[] type() {
-        return TYPES;
+    public @NotNull String type() {
+        return "itemedit";
     }
 
     @Override
@@ -34,6 +30,6 @@ public class ItemEditProvider implements SimpleItemProvider {
 
     @Override
     public @Nullable ItemStack item(@NotNull String id, @NotNull Player player) {
-        return  ItemEdit.get().getServerStorage().getItem(id, player);
+        return ItemEdit.get().getServerStorage().getItem(id, player);
     }
 }

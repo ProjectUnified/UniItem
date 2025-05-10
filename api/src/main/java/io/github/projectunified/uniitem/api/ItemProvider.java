@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 public interface ItemProvider {
-    @NotNull String[] type();
+    boolean isValidKey(@NotNull ItemKey key);
 
     @Nullable ItemKey key(@NotNull ItemStack item);
 
@@ -22,21 +22,12 @@ public interface ItemProvider {
         return player == null ? item(key) : item(key, player);
     }
 
-    default boolean isValidKey(@NotNull ItemKey key) {
-        for (String type : type()) {
-            if (key.type().equalsIgnoreCase(type)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     default boolean isSimilar(@NotNull ItemStack item, @NotNull ItemKey key) {
         if (!isValidKey(key)) return false;
 
         ItemKey itemKey = key(item);
         if (itemKey == null) return false;
 
-        return Objects.equals(itemKey.id(), key.id());
+        return Objects.equals(itemKey, key);
     }
 }

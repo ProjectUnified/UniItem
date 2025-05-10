@@ -9,13 +9,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class MythicItemProvider implements SimpleItemProvider {
-    private static final String[] TYPES = {
-            "mythicmobs",
-            "mm"
-    };
-
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("MythicMobs") != null;
+    }
+
+    @NotNull
+    @Override
+    public String type() {
+        return "mythicmobs";
     }
 
     @Nullable
@@ -32,11 +33,5 @@ public class MythicItemProvider implements SimpleItemProvider {
                 .map(item -> item.generateItemStack(1))
                 .map(BukkitAdapter::adapt)
                 .orElse(null);
-    }
-
-    @NotNull
-    @Override
-    public String[] type() {
-        return TYPES;
     }
 }

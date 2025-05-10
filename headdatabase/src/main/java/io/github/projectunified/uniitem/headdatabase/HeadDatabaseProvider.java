@@ -8,12 +8,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class HeadDatabaseProvider implements SimpleItemProvider {
-    private static final String[] TYPES = new String[]{
-            "headdatabase",
-            "headdb",
-            "hdb"
-    };
-
     private final HeadDatabaseAPI api = new HeadDatabaseAPI();
 
     public static boolean isAvailable() {
@@ -21,8 +15,8 @@ public class HeadDatabaseProvider implements SimpleItemProvider {
     }
 
     @Override
-    public @NotNull String[] type() {
-        return TYPES;
+    public @NotNull String type() {
+        return "headdatabase";
     }
 
     @Override

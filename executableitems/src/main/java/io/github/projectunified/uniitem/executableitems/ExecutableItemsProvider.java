@@ -12,17 +12,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class ExecutableItemsProvider implements SimpleItemProvider {
-    private static final String[] TYPES = {
-            "executableitems"
-    };
-
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("ExecutableItems") != null;
     }
 
     @Override
-    public @NotNull String[] type() {
-        return TYPES;
+    public @NotNull String type() {
+        return "executableitems";
     }
 
     @Override

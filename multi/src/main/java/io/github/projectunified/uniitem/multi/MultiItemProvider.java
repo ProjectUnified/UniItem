@@ -2,54 +2,59 @@ package io.github.projectunified.uniitem.multi;
 
 import io.github.projectunified.uniitem.api.ItemKey;
 import io.github.projectunified.uniitem.api.ItemProvider;
+import io.github.projectunified.uniitem.api.SimpleItemProvider;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class MultiItemProvider implements ItemProvider {
     private final List<ItemProvider> providers = new ArrayList<>();
-    private final Map<String, Optional<ItemProvider>> providerPerType = new ConcurrentHashMap<>();
+    private final Map<String, ItemProvider> providerMap = new HashMap<>();
+    private final Map<String, String> aliases = new HashMap<>();
 
-    public MultiItemProvider addProvider(@NotNull ItemProvider provider) {
+    private static String normalize(String type) {
+        return type.toLowerCase(Locale.ROOT);
+    }
+
+    public void addProvider(SimpleItemProvider provider, String... alias) {
         providers.add(provider);
-        return this;
+        providerMap.put(normalize(provider.type()), provider);
+        for (String a : alias) {
+            aliases.put(normalize(a), normalize(provider.type()));
+        }
     }
 
-    public MultiItemProvider removeProvider(@NotNull ItemProvider provider) {
-        providers.remove(provider);
-        providerPerType.entrySet().removeIf(entry -> entry.getValue().isPresent() && entry.getValue().get() == provider);
-        return this;
+    public void addProvider(ItemProvider provider, String... type) {
+        providers.add(provider);
+        for (String t : type) {
+            providerMap.put(normalize(t), provider);
+        }
     }
 
-    public List<ItemProvider> getProviders() {
-        return Collections.unmodifiableList(providers);
+    private String getType(@NotNull ItemKey key) {
+        String type = key.type();
+        type = aliases.getOrDefault(normalize(type), type);
+        return normalize(type);
     }
 
-    private Optional<ItemProvider> getProvider(@NotNull ItemKey key) {
-        return providerPerType.computeIfAbsent(key.type(), t -> {
-            for (ItemProvider provider : providers) {
-                if (provider.isValidKey(key)) {
-                    return Optional.of(provider);
-                }
-            }
-            return Optional.empty();
-        });
+    public Collection<String> getPossibleTypes() {
+        Set<String> types = new HashSet<>();
+        types.addAll(providerMap.keySet());
+        types.addAll(aliases.keySet());
+        return types;
     }
 
-    @Override
-    public @NotNull String[] type() {
-        return providers.stream()
-                .flatMap(provider -> Arrays.stream(provider.type()))
-                .distinct()
-                .toArray(String[]::new);
+    public Collection<ItemProvider> getProviders() {
+        return Collections.unmodifiableCollection(providers);
     }
 
     @Override
     public boolean isValidKey(@NotNull ItemKey key) {
-        return getProvider(key).isPresent();
+        String type = getType(key);
+        ItemProvider provider = providerMap.get(type);
+        return provider != null && provider.isValidKey(new ItemKey(type, key.id()));
     }
 
     @Override
@@ -57,7 +62,6 @@ public class MultiItemProvider implements ItemProvider {
         for (ItemProvider provider : providers) {
             ItemKey key = provider.key(item);
             if (key != null) {
-                providerPerType.computeIfAbsent(key.type(), t -> Optional.of(provider));
                 return key;
             }
         }
@@ -66,11 +70,15 @@ public class MultiItemProvider implements ItemProvider {
 
     @Override
     public @Nullable ItemStack item(@NotNull ItemKey key) {
-        return getProvider(key).map(itemProvider -> itemProvider.item(key)).orElse(null);
+        String type = getType(key);
+        ItemProvider provider = providerMap.get(type);
+        return provider != null ? provider.item(new ItemKey(type, key.id())) : null;
     }
 
     @Override
     public boolean isSimilar(@NotNull ItemStack item, @NotNull ItemKey key) {
-        return getProvider(key).map(itemProvider -> itemProvider.isSimilar(item, key)).orElse(false);
+        String type = getType(key);
+        ItemProvider provider = providerMap.get(type);
+        return provider != null && provider.isSimilar(item, new ItemKey(type, key.id()));
     }
 }

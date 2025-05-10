@@ -16,7 +16,6 @@ public class EcoItemProvider implements ItemProvider {
         return Bukkit.getPluginManager().getPlugin("eco") != null;
     }
 
-    @Override
     public @NotNull String[] type() {
         return Items.getCustomItems().stream().map(CustomItem::getKey).map(NamespacedKey::getNamespace).toArray(String[]::new);
     }

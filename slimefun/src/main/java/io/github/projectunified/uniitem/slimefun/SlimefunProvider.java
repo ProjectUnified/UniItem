@@ -8,13 +8,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class SlimefunProvider implements SimpleItemProvider {
-    private static final String[] TYPES = {
-            "slimefun",
-            "sf"
-    };
-
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("Slimefun") != null;
+    }
+
+    @Override
+    public @NotNull String type() {
+        return "slimefun";
     }
 
     @Override
@@ -25,10 +25,5 @@ public class SlimefunProvider implements SimpleItemProvider {
     @Override
     public @Nullable ItemStack item(@NotNull String id) {
         return SlimefunItem.getOptionalById(id).map(SlimefunItem::getItem).map(ItemStack::clone).orElse(null);
-    }
-
-    @Override
-    public @NotNull String[] type() {
-        return TYPES;
     }
 }

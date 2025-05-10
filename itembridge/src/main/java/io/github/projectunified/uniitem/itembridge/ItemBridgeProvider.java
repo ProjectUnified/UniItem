@@ -9,10 +9,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class ItemBridgeProvider implements SimpleItemProvider {
-    private static final String[] TYPES = {
-            "itembridge"
-    };
-
     public static boolean isAvailable() {
         if (Bukkit.getPluginManager().getPlugin("ItemBridge") == null) {
             return false;
@@ -27,8 +23,8 @@ public class ItemBridgeProvider implements SimpleItemProvider {
     }
 
     @Override
-    public @NotNull String[] type() {
-        return TYPES;
+    public @NotNull String type() {
+        return "itembridge";
     }
 
     @Override
