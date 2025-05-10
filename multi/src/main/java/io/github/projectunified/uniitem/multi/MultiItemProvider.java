@@ -33,10 +33,10 @@ public class MultiItemProvider implements ItemProvider {
         }
     }
 
-    private String getType(@NotNull ItemKey key) {
+    private ItemKey normalizeKey(@NotNull ItemKey key) {
         String type = key.type();
         type = aliases.getOrDefault(normalize(type), type);
-        return normalize(type);
+        return new ItemKey(normalize(type), key.id());
     }
 
     public Collection<String> getPossibleTypes() {
@@ -52,9 +52,9 @@ public class MultiItemProvider implements ItemProvider {
 
     @Override
     public boolean isValidKey(@NotNull ItemKey key) {
-        String type = getType(key);
-        ItemProvider provider = providerMap.get(type);
-        return provider != null && provider.isValidKey(new ItemKey(type, key.id()));
+        key = normalizeKey(key);
+        ItemProvider provider = providerMap.get(key.type());
+        return provider != null && provider.isValidKey(key);
     }
 
     @Override
@@ -70,15 +70,15 @@ public class MultiItemProvider implements ItemProvider {
 
     @Override
     public @Nullable ItemStack item(@NotNull ItemKey key) {
-        String type = getType(key);
-        ItemProvider provider = providerMap.get(type);
-        return provider != null ? provider.item(new ItemKey(type, key.id())) : null;
+        key = normalizeKey(key);
+        ItemProvider provider = providerMap.get(key.type());
+        return provider != null ? provider.item(key) : null;
     }
 
     @Override
     public boolean isSimilar(@NotNull ItemStack item, @NotNull ItemKey key) {
-        String type = getType(key);
-        ItemProvider provider = providerMap.get(type);
-        return provider != null && provider.isSimilar(item, new ItemKey(type, key.id()));
+        key = normalizeKey(key);
+        ItemProvider provider = providerMap.get(key.type());
+        return provider != null && provider.isSimilar(item, key);
     }
 }
