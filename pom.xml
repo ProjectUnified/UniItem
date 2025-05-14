@@ -24,6 +24,7 @@
         <module>nova</module>
         <module>slimefun</module>
         <module>mythicmobs</module>
+        <module>mmoitems</module>
     </modules>
 
     <name>UniItem</name>

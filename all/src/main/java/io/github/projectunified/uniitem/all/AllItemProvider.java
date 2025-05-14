@@ -6,6 +6,7 @@ import io.github.projectunified.uniitem.headdatabase.HeadDatabaseProvider;
 import io.github.projectunified.uniitem.itembridge.ItemBridgeProvider;
 import io.github.projectunified.uniitem.itemedit.ItemEditProvider;
 import io.github.projectunified.uniitem.itemsadder.ItemsAdderProvider;
+import io.github.projectunified.uniitem.mmoitems.MMOItemsProvider;
 import io.github.projectunified.uniitem.multi.MultiItemProvider;
 import io.github.projectunified.uniitem.mythicmobs.MythicItemProvider;
 import io.github.projectunified.uniitem.nexo.NexoProvider;
@@ -16,15 +17,18 @@ import io.github.projectunified.uniitem.slimefun.SlimefunProvider;
 public class AllItemProvider extends MultiItemProvider {
     public AllItemProvider() {
         // Dependent
+        if (ItemEditProvider.isAvailable()) {
+            addProvider(new ItemEditProvider());
+        }
         if (EcoItemProvider.isAvailable()) {
             EcoItemProvider provider = new EcoItemProvider();
             addProvider(provider, provider.type());
         }
-        if (ItemEditProvider.isAvailable()) {
-            addProvider(new ItemEditProvider());
-        }
         if (ExecutableItemsProvider.isAvailable()) {
             addProvider(new ExecutableItemsProvider());
+        }
+        if (MMOItemsProvider.isAvailable()) {
+            addProvider(new MMOItemsProvider());
         }
         if (MythicItemProvider.isAvailable()) {
             addProvider(new MythicItemProvider(), "mm");
