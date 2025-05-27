@@ -11,13 +11,36 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class EcoItemProvider implements ItemProvider {
+    private static final Map<String, String> ECO_PLUGINS = new HashMap<String, String>() {{
+        put("EcoArmor", "ecoarmor");
+        put("EcoCrates", "ecocrates");
+        put("EcoItems", "ecoitems");
+        put("EcoMobs", "ecomobs");
+        put("EcoPets", "ecopets");
+        put("EcoScrolls", "ecoscrolls");
+        put("Reforges", "reforges");
+        put("StatTrackers", "stattrackers");
+        put("Talismans", "talismans");
+    }};
+
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("eco") != null;
     }
 
     public @NotNull String[] type() {
-        return Items.getCustomItems().stream().map(CustomItem::getKey).map(NamespacedKey::getNamespace).toArray(String[]::new);
+        List<String> types = new ArrayList<>();
+        for (String pluginName : ECO_PLUGINS.keySet()) {
+            if (Bukkit.getPluginManager().getPlugin(pluginName) != null) {
+                types.add(ECO_PLUGINS.get(pluginName));
+            }
+        }
+        return types.toArray(new String[0]);
     }
 
     @Override
