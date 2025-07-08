@@ -41,7 +41,7 @@
         <dependency>
             <groupId>com.willfp</groupId>
             <artifactId>eco</artifactId>
-            <version>6.75.2</version>
+            <version>6.76.2</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
