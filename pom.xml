@@ -25,6 +25,7 @@
         <module>slimefun</module>
         <module>mythicmobs</module>
         <module>mmoitems</module>
+        <module>customfishing</module>
     </modules>
 
     <name>UniItem</name>

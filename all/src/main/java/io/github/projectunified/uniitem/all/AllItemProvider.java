@@ -1,5 +1,6 @@
 package io.github.projectunified.uniitem.all;
 
+import io.github.projectunified.uniitem.customfishing.CustomFishingProvider;
 import io.github.projectunified.uniitem.eco.EcoItemProvider;
 import io.github.projectunified.uniitem.executableitems.ExecutableItemsProvider;
 import io.github.projectunified.uniitem.headdatabase.HeadDatabaseProvider;
@@ -19,6 +20,9 @@ public class AllItemProvider extends MultiItemProvider {
         // Dependent
         if (ItemEditProvider.isAvailable()) {
             addProvider(new ItemEditProvider());
+        }
+        if (CustomFishingProvider.isAvailable()) {
+            addProvider(new CustomFishingProvider());
         }
         if (EcoItemProvider.isAvailable()) {
             EcoItemProvider provider = new EcoItemProvider();

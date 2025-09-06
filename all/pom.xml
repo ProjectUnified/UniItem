@@ -82,5 +82,10 @@
             <artifactId>uni-item-mmoitems</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.projectunified</groupId>
+            <artifactId>uni-item-customfishing</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

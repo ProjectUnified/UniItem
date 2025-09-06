@@ -8,6 +8,7 @@ Library to hook into various item plugins
 
 | Plugin                                                       | Type              | Alias           | Note                                                                                                      |
 |--------------------------------------------------------------|-------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
+| [CustomFishing](https://github.com/Xiao-MoMi/Custom-Fishing) | `customfishing`   |                 |                                                                                                           |
 | [EcoArmor](https://www.spigotmc.org/resources/88246/)        | `ecoarmor`        |                 | [How to set ID](https://plugins.auxilor.io/all-plugins/the-item-lookup-system#using-items-in-eco-plugins) |
 | [EcoCrates](https://polymart.org/product/2149/)              | `ecocrates`       |                 | [How to set ID](https://plugins.auxilor.io/all-plugins/the-item-lookup-system#using-items-in-eco-plugins) |
 | [EcoItems](https://www.spigotmc.org/resources/94601/)        | `ecoitems`        |                 | [How to set ID](https://plugins.auxilor.io/all-plugins/the-item-lookup-system#using-items-in-eco-plugins) |
