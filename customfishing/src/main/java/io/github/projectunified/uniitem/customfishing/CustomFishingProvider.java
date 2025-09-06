@@ -4,6 +4,7 @@ import io.github.projectunified.uniitem.api.SimpleItemProvider;
 import net.momirealms.customfishing.api.BukkitCustomFishingPlugin;
 import net.momirealms.customfishing.api.mechanic.context.Context;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -28,5 +29,10 @@ public class CustomFishingProvider implements SimpleItemProvider {
     @Override
     public @Nullable ItemStack item(@NotNull String id) {
         return api.getItemManager().buildInternal(Context.player(null), id);
+    }
+
+    @Override
+    public @Nullable ItemStack item(@NotNull String id, @NotNull Player player) {
+        return api.getItemManager().buildInternal(Context.player(player), id);
     }
 }
