@@ -28,7 +28,7 @@
         <dependency>
             <groupId>com.willfp</groupId>
             <artifactId>libreforge</artifactId>
-            <version>4.77.0</version>
+            <version>4.78.0</version>
             <classifier>all</classifier>
             <scope>provided</scope>
             <exclusions>
