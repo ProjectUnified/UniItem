@@ -28,7 +28,7 @@
         <dependency>
             <groupId>io.th0rgal</groupId>
             <artifactId>oraxen</artifactId>
-            <version>1.194.1</version>
+            <version>1.195.0</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
