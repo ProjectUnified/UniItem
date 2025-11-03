@@ -28,7 +28,7 @@
         <dependency>
             <groupId>maven.modrinth</groupId>
             <artifactId>SCore</artifactId>
-            <version>5.25.10.30</version>
+            <version>5.25.11.2</version>
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
