@@ -26,6 +26,7 @@
         <module>mythicmobs</module>
         <module>mmoitems</module>
         <module>customfishing</module>
+        <module>craftengine</module>
     </modules>
 
     <name>UniItem</name>

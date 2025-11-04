@@ -1,5 +1,6 @@
 package io.github.projectunified.uniitem.all;
 
+import io.github.projectunified.uniitem.craftengine.CraftEngineItemProvider;
 import io.github.projectunified.uniitem.customfishing.CustomFishingProvider;
 import io.github.projectunified.uniitem.eco.EcoItemProvider;
 import io.github.projectunified.uniitem.executableitems.ExecutableItemsProvider;
@@ -20,6 +21,9 @@ public class AllItemProvider extends MultiItemProvider {
         // Dependent
         if (ItemEditProvider.isAvailable()) {
             addProvider(new ItemEditProvider());
+        }
+        if (CraftEngineItemProvider.isAvailable()) {
+            addProvider(new CraftEngineItemProvider());
         }
         if (CustomFishingProvider.isAvailable()) {
             addProvider(new CustomFishingProvider());
