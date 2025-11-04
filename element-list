@@ -1,5 +1,7 @@
 io.github.projectunified.uniitem.all
 io.github.projectunified.uniitem.api
+io.github.projectunified.uniitem.craftengine
+io.github.projectunified.uniitem.customfishing
 io.github.projectunified.uniitem.eco
 io.github.projectunified.uniitem.executableitems
 io.github.projectunified.uniitem.headdatabase
