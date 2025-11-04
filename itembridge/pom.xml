@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>uni-item-itembridge</artifactId>
+    <name>UniItem Itembridge</name>
 
     <repositories>
         <repository>

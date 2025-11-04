@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>uni-item-all</artifactId>
+    <name>UniItem All</name>
 
     <dependencies>
         <dependency>

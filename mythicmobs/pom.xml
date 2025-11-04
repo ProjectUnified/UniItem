@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>uni-item-mythicmobs</artifactId>
+    <name>UniItem Mythicmobs</name>
 
     <repositories>
         <repository>

@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>uni-item-slimefun</artifactId>
+    <name>UniItem Slimefun</name>
 
     <repositories>
         <repository>

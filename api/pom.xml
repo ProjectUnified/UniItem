@@ -10,4 +10,5 @@
     </parent>
 
     <artifactId>uni-item-api</artifactId>
+    <name>UniItem Api</name>
 </project>

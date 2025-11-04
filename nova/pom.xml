@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>uni-item-nova</artifactId>
+    <name>UniItem Nova</name>
 
     <repositories>
         <repository>

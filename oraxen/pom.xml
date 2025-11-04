@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>uni-item-oraxen</artifactId>
+    <name>UniItem Oraxen</name>
 
     <repositories>
         <repository>

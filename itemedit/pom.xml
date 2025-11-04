@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>uni-item-itemedit</artifactId>
+    <name>UniItem Itemedit</name>
 
     <repositories>
         <repository>

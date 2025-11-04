@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>uni-item-nexo</artifactId>
+    <name>UniItem Nexo</name>
 
     <repositories>
         <repository>

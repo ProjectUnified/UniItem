@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>uni-item-multi</artifactId>
+    <name>UniItem Multi</name>
 
     <dependencies>
         <dependency>

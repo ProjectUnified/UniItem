@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>uni-item-mmoitems</artifactId>
+    <name>UniItem Mmoitems</name>
 
     <repositories>
         <repository>
@@ -28,14 +29,14 @@
         <dependency>
             <groupId>io.lumine</groupId>
             <artifactId>MythicLib-dist</artifactId>
-            <version>1.6.2-SNAPSHOT</version>
+            <version>1.6.2-20241023.161007-72</version>
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>net.Indyuce</groupId>
             <artifactId>MMOItems-API</artifactId>
-            <version>6.9.5-SNAPSHOT</version>
+            <version>6.9.5-20240127.151319-18</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

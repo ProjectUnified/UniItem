@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>uni-item-eco</artifactId>
+    <name>UniItem Eco</name>
 
     <repositories>
         <repository>

@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>uni-item-craftengine</artifactId>
+    <name>UniItem Craftengine</name>
 
     <properties>
         <craftengine.version>0.0.64</craftengine.version>
