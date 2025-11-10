@@ -13,7 +13,7 @@
     <name>UniItem Craftengine</name>
 
     <properties>
-        <craftengine.version>0.0.65.3</craftengine.version>
+        <craftengine.version>0.0.65.7.1</craftengine.version>
     </properties>
 
     <repositories>
