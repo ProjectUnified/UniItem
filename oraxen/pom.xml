@@ -29,7 +29,7 @@
         <dependency>
             <groupId>io.th0rgal</groupId>
             <artifactId>oraxen</artifactId>
-            <version>1.196.0</version>
+            <version>1.198.0</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
