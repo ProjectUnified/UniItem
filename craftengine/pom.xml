@@ -12,10 +12,6 @@
     <artifactId>uni-item-craftengine</artifactId>
     <name>UniItem Craftengine</name>
 
-    <properties>
-        <craftengine.version>0.0.65.11</craftengine.version>
-    </properties>
-
     <repositories>
         <repository>
             <id>momirealms</id>
@@ -33,13 +29,13 @@
         <dependency>
             <groupId>net.momirealms</groupId>
             <artifactId>craft-engine-core</artifactId>
-            <version>${craftengine.version}</version>
+            <version>0.0.65</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.momirealms</groupId>
             <artifactId>craft-engine-bukkit</artifactId>
-            <version>${craftengine.version}</version>
+            <version>0.0.65</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
