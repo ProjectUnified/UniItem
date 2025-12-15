@@ -29,7 +29,7 @@
         <dependency>
             <groupId>maven.modrinth</groupId>
             <artifactId>SCore</artifactId>
-            <version>5.25.12.10</version>
+            <version>5.25.12.14</version>
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
