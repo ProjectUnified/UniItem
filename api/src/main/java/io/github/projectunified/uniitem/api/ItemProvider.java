@@ -5,29 +5,36 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Objects;
+import java.util.List;
 
 public interface ItemProvider {
-    boolean isValidKey(@NotNull ItemKey key);
+    List<String> availableTypes();
 
-    @Nullable ItemKey key(@NotNull ItemStack item);
+    @NotNull Item wrap(@NotNull ItemStack item);
 
-    @Nullable ItemStack item(@NotNull ItemKey key);
+    @NotNull Item wrap(@NotNull ItemKey key);
+
+    default boolean isValidKey(@NotNull ItemKey key) {
+        return wrap(key).isValid();
+    }
+
+    default @Nullable ItemKey key(@NotNull ItemStack item) {
+        return wrap(item).key();
+    }
+
+    default @Nullable ItemStack item(@NotNull ItemKey key) {
+        return wrap(key).bukkitItem();
+    }
 
     default @Nullable ItemStack item(@NotNull ItemKey key, @NotNull Player player) {
-        return item(key);
+        return wrap(key).bukkitItem(player);
     }
 
     default @Nullable ItemStack tryItem(@NotNull ItemKey key, @Nullable Player player) {
-        return player == null ? item(key) : item(key, player);
+        return wrap(key).tryBukkitItem(player);
     }
 
     default boolean isSimilar(@NotNull ItemStack item, @NotNull ItemKey key) {
-        if (!isValidKey(key)) return false;
-
-        ItemKey itemKey = key(item);
-        if (itemKey == null) return false;
-
-        return Objects.equals(itemKey, key);
+        return wrap(key).isSimilar(item);
     }
 }

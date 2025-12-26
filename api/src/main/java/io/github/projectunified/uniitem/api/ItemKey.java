@@ -1,5 +1,6 @@
 package io.github.projectunified.uniitem.api;
 
+import java.util.Collection;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -36,6 +37,17 @@ public final class ItemKey {
 
     public String type() {
         return type;
+    }
+
+    public boolean isType(String type) {
+        return this.type.equalsIgnoreCase(type);
+    }
+
+    public boolean isType(Collection<String> types) {
+        for (String type : types) {
+            if (isType(type)) return true;
+        }
+        return false;
     }
 
     public String id() {

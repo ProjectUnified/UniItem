@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>api</module>
-        <module>multi</module>
         <module>all</module>
 
         <module>itembridge</module>

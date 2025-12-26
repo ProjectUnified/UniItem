@@ -1,31 +1,34 @@
 package io.github.projectunified.uniitem.nexo;
 
-import com.nexomc.nexo.api.NexoItems;
-import com.nexomc.nexo.items.ItemBuilder;
-import io.github.projectunified.uniitem.api.SimpleItemProvider;
+import io.github.projectunified.uniitem.api.Item;
+import io.github.projectunified.uniitem.api.ItemKey;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-public class NexoProvider implements SimpleItemProvider {
+import java.util.Collections;
+import java.util.List;
+
+public class NexoProvider implements ItemProvider {
+    public static final String TYPE = "nexo";
+
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("Nexo") != null;
     }
 
     @Override
-    public @NotNull String type() {
-        return "nexo";
+    public List<String> availableTypes() {
+        return Collections.singletonList(TYPE);
     }
 
     @Override
-    public @Nullable String id(@NotNull ItemStack item) {
-        return NexoItems.idFromItem(item);
+    public @NotNull Item wrap(@NotNull ItemStack item) {
+        return new NexoItem(item);
     }
 
     @Override
-    public @Nullable ItemStack item(@NotNull String id) {
-        ItemBuilder builder = NexoItems.itemFromId(id);
-        return builder != null ? builder.build() : null;
+    public @NotNull Item wrap(@NotNull ItemKey key) {
+        return key.isType(TYPE) ? new NexoItem(key.id()) : Item.INVALID;
     }
 }

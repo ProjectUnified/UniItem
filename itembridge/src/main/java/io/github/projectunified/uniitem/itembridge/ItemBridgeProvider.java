@@ -1,14 +1,22 @@
 package io.github.projectunified.uniitem.itembridge;
 
-import com.jojodmo.itembridge.ItemBridge;
-import com.jojodmo.itembridge.ItemBridgeKey;
-import io.github.projectunified.uniitem.api.SimpleItemProvider;
+import io.github.projectunified.uniitem.api.Item;
+import io.github.projectunified.uniitem.api.ItemKey;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-public class ItemBridgeProvider implements SimpleItemProvider {
+import java.util.Arrays;
+import java.util.List;
+
+public class ItemBridgeProvider implements ItemProvider {
+    public static final String TYPE = "itembridge";
+    public static final List<String> TYPES = Arrays.asList(
+            TYPE,
+            "item-bridge"
+    );
+
     public static boolean isAvailable() {
         if (Bukkit.getPluginManager().getPlugin("ItemBridge") == null) {
             return false;
@@ -23,18 +31,17 @@ public class ItemBridgeProvider implements SimpleItemProvider {
     }
 
     @Override
-    public @NotNull String type() {
-        return "itembridge";
+    public List<String> availableTypes() {
+        return TYPES;
     }
 
     @Override
-    public @Nullable String id(@NotNull ItemStack item) {
-        ItemBridgeKey key = ItemBridge.getItemKey(item);
-        return key != null ? key.toString() : null;
+    public @NotNull Item wrap(@NotNull ItemStack item) {
+        return new ItemBridgeItem(item);
     }
 
     @Override
-    public @Nullable ItemStack item(@NotNull String id) {
-        return ItemBridge.getItemStack(id);
+    public @NotNull Item wrap(@NotNull ItemKey key) {
+        return key.isType(TYPES) ? new ItemBridgeItem(key.id()) : Item.INVALID;
     }
 }

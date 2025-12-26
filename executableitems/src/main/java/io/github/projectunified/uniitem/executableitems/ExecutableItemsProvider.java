@@ -1,47 +1,34 @@
 package io.github.projectunified.uniitem.executableitems;
 
-import com.ssomar.score.api.executableitems.ExecutableItemsAPI;
-import com.ssomar.score.sobject.SObjectInterface;
-import io.github.projectunified.uniitem.api.SimpleItemProvider;
+import io.github.projectunified.uniitem.api.Item;
+import io.github.projectunified.uniitem.api.ItemKey;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.Optional;
+import java.util.Collections;
+import java.util.List;
 
-public class ExecutableItemsProvider implements SimpleItemProvider {
+public class ExecutableItemsProvider implements ItemProvider {
+    public static final String TYPE = "executableitems";
+
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("ExecutableItems") != null;
     }
 
     @Override
-    public @NotNull String type() {
-        return "executableitems";
+    public List<String> availableTypes() {
+        return Collections.singletonList(TYPE);
     }
 
     @Override
-    public @Nullable String id(@NotNull ItemStack item) {
-        return ExecutableItemsAPI.getExecutableItemsManager()
-                .getExecutableItem(item)
-                .map(SObjectInterface::getId)
-                .orElse(null);
+    public @NotNull Item wrap(@NotNull ItemStack item) {
+        return new ExecutableItem(item);
     }
 
     @Override
-    public @Nullable ItemStack item(@NotNull String id) {
-        return ExecutableItemsAPI.getExecutableItemsManager()
-                .getExecutableItem(id)
-                .map(i -> i.buildItem(1, Optional.empty()))
-                .orElse(null);
-    }
-
-    @Override
-    public @Nullable ItemStack item(@NotNull String id, @NotNull Player player) {
-        return ExecutableItemsAPI.getExecutableItemsManager()
-                .getExecutableItem(id)
-                .map(i -> i.buildItem(1, Optional.of(player)))
-                .orElse(null);
+    public @NotNull Item wrap(@NotNull ItemKey key) {
+        return key.isType(TYPE) ? new ExecutableItem(key.id()) : Item.INVALID;
     }
 }

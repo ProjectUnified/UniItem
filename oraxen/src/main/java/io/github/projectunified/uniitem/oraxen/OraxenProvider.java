@@ -1,31 +1,38 @@
 package io.github.projectunified.uniitem.oraxen;
 
-import io.github.projectunified.uniitem.api.SimpleItemProvider;
-import io.th0rgal.oraxen.api.OraxenItems;
-import io.th0rgal.oraxen.items.ItemBuilder;
+import io.github.projectunified.uniitem.api.Item;
+import io.github.projectunified.uniitem.api.ItemKey;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-public class OraxenProvider implements SimpleItemProvider {
+import java.util.Arrays;
+import java.util.List;
+
+public class OraxenProvider implements ItemProvider {
+    public static final String TYPE = "oraxen";
+    public static final List<String> TYPES = Arrays.asList(
+            TYPE,
+            "orx"
+    );
+
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("Oraxen") != null;
     }
 
     @Override
-    public @NotNull String type() {
-        return "oraxen";
+    public List<String> availableTypes() {
+        return TYPES;
     }
 
     @Override
-    public @Nullable String id(@NotNull ItemStack item) {
-        return OraxenItems.getIdByItem(item);
+    public @NotNull Item wrap(@NotNull ItemStack item) {
+        return new OraxenItem(item);
     }
 
     @Override
-    public @Nullable ItemStack item(@NotNull String id) {
-        ItemBuilder itemBuilder = OraxenItems.getItemById(id);
-        return itemBuilder != null ? itemBuilder.build() : null;
+    public @NotNull Item wrap(@NotNull ItemKey key) {
+        return key.isType(TYPES) ? new OraxenItem(key.id()) : Item.INVALID;
     }
 }

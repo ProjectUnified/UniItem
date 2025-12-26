@@ -1,29 +1,38 @@
 package io.github.projectunified.uniitem.slimefun;
 
-import io.github.projectunified.uniitem.api.SimpleItemProvider;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.projectunified.uniitem.api.Item;
+import io.github.projectunified.uniitem.api.ItemKey;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-public class SlimefunProvider implements SimpleItemProvider {
+import java.util.Arrays;
+import java.util.List;
+
+public class SlimefunProvider implements ItemProvider {
+    public static final String TYPE = "slimefun";
+    public static final List<String> TYPES = Arrays.asList(
+            TYPE,
+            "sf"
+    );
+
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("Slimefun") != null;
     }
 
     @Override
-    public @NotNull String type() {
-        return "slimefun";
+    public List<String> availableTypes() {
+        return TYPES;
     }
 
     @Override
-    public @Nullable String id(@NotNull ItemStack item) {
-        return SlimefunItem.getOptionalByItem(item).map(SlimefunItem::getId).orElse(null);
+    public @NotNull Item wrap(@NotNull ItemStack item) {
+        return new SFItem(item);
     }
 
     @Override
-    public @Nullable ItemStack item(@NotNull String id) {
-        return SlimefunItem.getOptionalById(id).map(SlimefunItem::getItem).map(ItemStack::clone).orElse(null);
+    public @NotNull Item wrap(@NotNull ItemKey key) {
+        return key.isType(TYPES) ? new SFItem(key.id()) : Item.INVALID;
     }
 }

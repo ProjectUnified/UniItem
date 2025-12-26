@@ -1,36 +1,34 @@
 package io.github.projectunified.uniitem.craftengine;
 
-import io.github.projectunified.uniitem.api.SimpleItemProvider;
+import io.github.projectunified.uniitem.api.Item;
+import io.github.projectunified.uniitem.api.ItemKey;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-public class CraftEngineItemProvider implements SimpleItemProvider {
-    private final CraftEngineUtil craftEngineUtil = new CraftEngineUtil();
+import java.util.Collections;
+import java.util.List;
+
+public class CraftEngineItemProvider implements ItemProvider {
+    public static final String TYPE = "craftengine";
 
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("CraftEngine") != null;
     }
 
     @Override
-    public @NotNull String type() {
-        return "craftengine";
+    public List<String> availableTypes() {
+        return Collections.singletonList(TYPE);
     }
 
     @Override
-    public @Nullable String id(@NotNull ItemStack item) {
-        return craftEngineUtil.id(item);
+    public @NotNull Item wrap(@NotNull ItemStack item) {
+        return new CraftEngineItem(item);
     }
 
     @Override
-    public @Nullable ItemStack item(@NotNull String id) {
-        return craftEngineUtil.item(id);
-    }
-
-    @Override
-    public @Nullable ItemStack item(@NotNull String id, @NotNull Player player) {
-        return craftEngineUtil.item(id, player);
+    public @NotNull Item wrap(@NotNull ItemKey key) {
+        return key.isType(TYPE) ? new CraftEngineItem(key.id()) : Item.INVALID;
     }
 }

@@ -1,31 +1,39 @@
 package io.github.projectunified.uniitem.headdatabase;
 
-import io.github.projectunified.uniitem.api.SimpleItemProvider;
-import me.arcaniax.hdb.api.HeadDatabaseAPI;
+import io.github.projectunified.uniitem.api.Item;
+import io.github.projectunified.uniitem.api.ItemKey;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-public class HeadDatabaseProvider implements SimpleItemProvider {
-    private final HeadDatabaseAPI api = new HeadDatabaseAPI();
+import java.util.Arrays;
+import java.util.List;
+
+public class HeadDatabaseProvider implements ItemProvider {
+    public static final String TYPE = "headdatabase";
+    public static final List<String> TYPES = Arrays.asList(
+            TYPE,
+            "headdb",
+            "hdb"
+    );
 
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("HeadDatabase") != null;
     }
 
     @Override
-    public @NotNull String type() {
-        return "headdatabase";
+    public List<String> availableTypes() {
+        return TYPES;
     }
 
     @Override
-    public @Nullable String id(@NotNull ItemStack item) {
-        return api.getItemID(item);
+    public @NotNull Item wrap(@NotNull ItemStack item) {
+        return new HeadDatabaseItem(item);
     }
 
     @Override
-    public @Nullable ItemStack item(@NotNull String id) {
-        return api.getItemHead(id);
+    public @NotNull Item wrap(@NotNull ItemKey key) {
+        return key.isType(TYPES) ? new HeadDatabaseItem(key.id()) : Item.INVALID;
     }
 }

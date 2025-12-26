@@ -1,35 +1,34 @@
 package io.github.projectunified.uniitem.itemedit;
 
-import emanondev.itemedit.ItemEdit;
-import io.github.projectunified.uniitem.api.SimpleItemProvider;
+import io.github.projectunified.uniitem.api.Item;
+import io.github.projectunified.uniitem.api.ItemKey;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-public class ItemEditProvider implements SimpleItemProvider {
+import java.util.Collections;
+import java.util.List;
+
+public class ItemEditProvider implements ItemProvider {
+    public static final String TYPE = "itemedit";
+
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("ItemEdit") != null;
     }
 
     @Override
-    public @NotNull String type() {
-        return "itemedit";
+    public List<String> availableTypes() {
+        return Collections.singletonList(TYPE);
     }
 
     @Override
-    public @Nullable String id(@NotNull ItemStack item) {
-        return ItemEdit.get().getServerStorage().getId(item);
+    public @NotNull Item wrap(@NotNull ItemStack item) {
+        return new ItemEditItem(item);
     }
 
     @Override
-    public @Nullable ItemStack item(@NotNull String id) {
-        return ItemEdit.get().getServerStorage().getItem(id);
-    }
-
-    @Override
-    public @Nullable ItemStack item(@NotNull String id, @NotNull Player player) {
-        return ItemEdit.get().getServerStorage().getItem(id, player);
+    public @NotNull Item wrap(@NotNull ItemKey key) {
+        return key.isType(TYPE) ? new ItemEditItem(key.id()) : Item.INVALID;
     }
 }

@@ -1,38 +1,34 @@
 package io.github.projectunified.uniitem.customfishing;
 
-import io.github.projectunified.uniitem.api.SimpleItemProvider;
-import net.momirealms.customfishing.api.BukkitCustomFishingPlugin;
-import net.momirealms.customfishing.api.mechanic.context.Context;
+import io.github.projectunified.uniitem.api.Item;
+import io.github.projectunified.uniitem.api.ItemKey;
+import io.github.projectunified.uniitem.api.ItemProvider;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-public class CustomFishingProvider implements SimpleItemProvider {
-    private final BukkitCustomFishingPlugin api = BukkitCustomFishingPlugin.getInstance();
+import java.util.Collections;
+import java.util.List;
+
+public class CustomFishingProvider implements ItemProvider {
+    public static final String TYPE = "customfishing";
 
     public static boolean isAvailable() {
         return Bukkit.getPluginManager().getPlugin("CustomFishing") != null;
     }
 
     @Override
-    public @NotNull String type() {
-        return "customfishing";
+    public List<String> availableTypes() {
+        return Collections.singletonList(TYPE);
     }
 
     @Override
-    public @Nullable String id(@NotNull ItemStack item) {
-        return api.getItemManager().getCustomFishingItemID(item);
+    public @NotNull Item wrap(@NotNull ItemStack item) {
+        return new CustomFishingItem(item);
     }
 
     @Override
-    public @Nullable ItemStack item(@NotNull String id) {
-        return api.getItemManager().buildInternal(Context.player(null), id);
-    }
-
-    @Override
-    public @Nullable ItemStack item(@NotNull String id, @NotNull Player player) {
-        return api.getItemManager().buildInternal(Context.player(player), id);
+    public @NotNull Item wrap(@NotNull ItemKey key) {
+        return key.isType(TYPE) ? new CustomFishingItem(key.id()) : Item.INVALID;
     }
 }
