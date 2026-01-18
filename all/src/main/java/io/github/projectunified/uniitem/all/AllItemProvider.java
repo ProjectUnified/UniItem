@@ -106,4 +106,15 @@ public class AllItemProvider implements ItemProvider {
     public @NotNull Item wrap(@NotNull ItemKey key) {
         return getProviders().stream().map(provider -> provider.wrap(key)).filter(Item::isValid).findFirst().orElse(Item.INVALID);
     }
+
+    @Override
+    public @NotNull String normalize(@NotNull String type) {
+        for (ItemProvider provider : getProviders()) {
+            String normalized = provider.normalize(type);
+            if (!type.equals(normalized)) {
+                return normalized;
+            }
+        }
+        return type;
+    }
 }

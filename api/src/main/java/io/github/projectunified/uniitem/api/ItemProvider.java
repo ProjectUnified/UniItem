@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Locale;
 
 public interface ItemProvider {
     List<String> availableTypes();
@@ -36,5 +37,14 @@ public interface ItemProvider {
 
     default boolean isSimilar(@NotNull ItemStack item, @NotNull ItemKey key) {
         return wrap(key).isSimilar(item);
+    }
+
+    default @NotNull String normalize(@NotNull String type) {
+        List<String> types = availableTypes();
+        return types.contains(type.toLowerCase(Locale.ROOT)) ? types.getFirst() : type;
+    }
+
+    default @NotNull ItemKey normalize(@NotNull ItemKey key) {
+        return new ItemKey(normalize(key.type()), key.id());
     }
 }
