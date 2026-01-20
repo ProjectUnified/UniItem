@@ -29,7 +29,7 @@
         <dependency>
             <groupId>xyz.xenondevs.nova</groupId>
             <artifactId>nova-api</artifactId>
-            <version>0.21.2</version>
+            <version>0.22.1</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
