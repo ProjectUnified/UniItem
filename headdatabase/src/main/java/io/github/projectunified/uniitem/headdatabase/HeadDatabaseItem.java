@@ -10,16 +10,21 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-class HeadDatabaseItem implements Item {
+public class HeadDatabaseItem implements Item {
     private static final HeadDatabaseAPI api = new HeadDatabaseAPI();
     private final @Nullable String id;
 
-    HeadDatabaseItem(@NotNull String id) {
+    public HeadDatabaseItem(@NotNull String id) {
         this.id = api.isHead(id) ? id : null;
     }
 
-    HeadDatabaseItem(ItemStack itemStack) {
+    public HeadDatabaseItem(ItemStack itemStack) {
         this.id = api.getItemID(itemStack);
+    }
+
+    public String getBase64() {
+        if (id == null) return null;
+        return api.getBase64(id);
     }
 
     @Override
