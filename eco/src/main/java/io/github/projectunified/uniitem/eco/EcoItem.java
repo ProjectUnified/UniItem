@@ -3,6 +3,7 @@ package io.github.projectunified.uniitem.eco;
 import com.willfp.eco.core.items.CustomItem;
 import com.willfp.eco.core.items.Items;
 import com.willfp.eco.core.items.TestableItem;
+import com.willfp.eco.core.recipe.parts.ModifiedTestableItem;
 import io.github.projectunified.uniitem.api.Item;
 import io.github.projectunified.uniitem.api.ItemKey;
 import org.bukkit.NamespacedKey;
@@ -15,12 +16,20 @@ class EcoItem implements Item {
     private final @Nullable CustomItem customItem;
 
     EcoItem(ItemKey key) {
-        TestableItem testableItem = Items.lookup(key.type() + ":" + key.id());
-        this.customItem = testableItem instanceof CustomItem ? (CustomItem) testableItem : null;
+        this.customItem = getCustomItem(key.type() + ":" + key.id());
     }
 
     EcoItem(ItemStack itemStack) {
         this.customItem = Items.getCustomItem(itemStack);
+    }
+
+    private static CustomItem getCustomItem(String itemId) {
+        TestableItem item = Items.lookup(itemId);
+        if (item instanceof ModifiedTestableItem) {
+            ModifiedTestableItem modifiedTestableItem = (ModifiedTestableItem) item;
+            item = modifiedTestableItem.getHandle();
+        }
+        return item instanceof CustomItem ? (CustomItem) item : null;
     }
 
     @Override
