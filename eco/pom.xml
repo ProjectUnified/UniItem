@@ -29,7 +29,7 @@
         <dependency>
             <groupId>com.willfp</groupId>
             <artifactId>libreforge</artifactId>
-            <version>5.3.0</version>
+            <version>5.3.1</version>
             <classifier>all</classifier>
             <scope>provided</scope>
             <exclusions>
