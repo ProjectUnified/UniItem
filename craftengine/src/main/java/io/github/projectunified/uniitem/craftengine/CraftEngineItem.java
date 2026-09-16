@@ -3,8 +3,7 @@ package io.github.projectunified.uniitem.craftengine;
 import io.github.projectunified.uniitem.api.Item;
 import io.github.projectunified.uniitem.api.ItemKey;
 import net.momirealms.craftengine.bukkit.api.CraftEngineItems;
-import net.momirealms.craftengine.core.item.CustomItem;
-import net.momirealms.craftengine.core.item.ItemBuildContext;
+import net.momirealms.craftengine.bukkit.item.BukkitItemDefinition;
 import net.momirealms.craftengine.core.util.Key;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -14,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 class CraftEngineItem implements Item {
-    private final @Nullable CustomItem<ItemStack> customItem;
+    private final @Nullable BukkitItemDefinition customItem;
 
     CraftEngineItem(String id) {
         Key key = Key.of(id);
@@ -40,15 +39,13 @@ class CraftEngineItem implements Item {
     @Override
     public @Nullable ItemStack bukkitItem() {
         if (customItem == null) return null;
-        return customItem.buildItemStack();
+        return customItem.buildBukkitItem();
     }
 
     @Override
     public @Nullable ItemStack bukkitItem(@NotNull Player player) {
         if (customItem == null) return null;
-        net.momirealms.craftengine.core.entity.player.Player customPlayer = net.momirealms.craftengine.bukkit.api.BukkitAdaptors.adapt(player);
-        ItemBuildContext context = ItemBuildContext.of(customPlayer);
-        return customItem.buildItemStack(context);
+        return customItem.buildBukkitItem(player);
     }
 
     @Override
