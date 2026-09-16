@@ -6,7 +6,7 @@
 
     <groupId>io.github.projectunified</groupId>
     <artifactId>uni-item</artifactId>
-    <version>2.7.2-SNAPSHOT</version>
+    <version>2.7.2</version>
     <packaging>pom</packaging>
     <modules>
         <module>api</module>
